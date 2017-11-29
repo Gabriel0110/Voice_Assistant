@@ -6,9 +6,6 @@ import time
 
 
 def main():
-	
-	# create TTS (text-to-speech) voice
-	speak = wincl.Dispatch("SAPI.SpVoice")
 
 	prompt = input("To activate the AI, first press T and then enter.\n")
 
@@ -22,6 +19,9 @@ def main():
 		exit()
 		
 def voice_ai():
+	# create TTS (text-to-speech) voice
+	speak = wincl.Dispatch("SAPI.SpVoice")
+	
 	print("Hello! What can I help you with?")
 	
 	# recognize speech using Google Speech Recognition
