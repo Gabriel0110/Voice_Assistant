@@ -34,10 +34,10 @@ def voice_ai():
 		r = sr.Recognizer()
 		with sr.Microphone() as source:
 			audio = r.listen(source)
-			
-		result = r.recognize_google(audio)
 		
 		try:
+			result = r.recognize_google(audio)
+			
 			if str(findWholeWord('hey jarvis')(result)) != "None":
 				active = True
 				speak.Speak("How can I help you?") # just to know it activates, can remove later
@@ -47,11 +47,11 @@ def voice_ai():
 					r = sr.Recognizer()
 					with sr.Microphone() as source:
 						audio = r.listen(source)
-						
-					result = r.recognize_google(audio)
 					
 					# COMMAND OPTIONS
 					try:
+						result = r.recognize_google(audio)
+						
 						if str(findWholeWord('goodbye jarvis')(result.lower())) != "None":
 							speak.Speak("Goodbye!")
 							active = False
