@@ -77,6 +77,7 @@ def voice_ai():
 						elif result.startswith("text my girlfriend"):
 							speak.Speak("Texting your girlfriend " + result[19:])
 							twilio_texting.sendText(result[19:])
+							active = False
 						else:
 							speak.Speak("I do not recognize that command, please try again.")
 							print("Google Speech Recognition thinks you said \"" + result + "\"")
