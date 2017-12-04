@@ -38,7 +38,7 @@ def voice_ai():
 		try:
 			result = r.recognize_google(audio)
 			
-			if str(findWholeWord('hey jarvis')(result)) != "None":
+			if str(findWholeWord('hey jarvis')(result)) != "None" or str(findWholeWord('hey Jarvis')(result)) != "None":
 				active = True
 				speak.Speak("How can I help you?") # just to know it activates, can remove later
 				
@@ -51,6 +51,12 @@ def voice_ai():
 					# COMMAND OPTIONS
 					try:
 						result = r.recognize_google(audio)
+						
+						""" 
+							REPEATING active = False: to return back to main
+							program loop after any command, requiring you to
+							initialize Jarvis again by saying the init command.
+						"""	
 						
 						if str(findWholeWord('goodbye jarvis')(result.lower())) != "None":
 							speak.Speak("Goodbye!")
