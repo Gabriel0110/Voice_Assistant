@@ -4,6 +4,7 @@ import subprocess
 import webbrowser
 import time
 import re
+import twilio_texting
 
 
 def main():
@@ -73,6 +74,9 @@ def voice_ai():
 							speak.Speak("Searching for " + result[7:] + " on your browser")
 							googleSearch(result[7:])
 							active = False
+						elif result.startswith("text my girlfriend"):
+							speak.Speak("Texting your girlfriend " + result[19:])
+							twilio_texting.sendText(result[19:])
 						else:
 							speak.Speak("I do not recognize that command, please try again.")
 							print("Google Speech Recognition thinks you said \"" + result + "\"")
