@@ -7,6 +7,7 @@ import re
 import twilio_texting
 import pyautogui
 import play_game_command
+import work_timer
 
 
 def main():
@@ -41,7 +42,7 @@ def voice_ai():
 		try:
 			result = r.recognize_google(audio)
 			
-			if str(findWholeWord('hey jarvis')(result)) != "None" or str(findWholeWord('hey Jarvis')(result)) != "None":
+			if str(findWholeWord('hey jarvis')(result.lower())) != "None":
 				active = True
 				speak.Speak("How can I help you?") # just to know it activates, can remove later
 				
@@ -85,6 +86,10 @@ def voice_ai():
 								play_game_command.chooseGame("avolition")
 							#if result[10:].lower() == "wow":
 								# open world of warcraft
+							active = False
+						elif result == "start work timer":
+							work_timer.workTimer()
+							active = False
 						else:
 							speak.Speak("I do not recognize that command, please try again.")
 							print("Google Speech Recognition thinks you said \"" + result + "\"")
