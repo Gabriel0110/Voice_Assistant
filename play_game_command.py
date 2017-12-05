@@ -1,7 +1,7 @@
 import subprocess
 import pyautogui
 
-def chooseGame(game.lower()):
+def chooseGame(game):
 	if game == "avolition":
 		playAvolition()
 		
