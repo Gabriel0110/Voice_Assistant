@@ -61,10 +61,10 @@ def voice_ai():
 							initialize Jarvis again by saying the init command.
 						"""	
 						
-						if str(findWholeWord('goodbye jarvis')(result.lower())) != "None":
+						if str(findWholeWord('goodbye jarvis')(result.lower())) != "None": # exit command-entry loop
 							speak.Speak("Goodbye!")
 							active = False
-						elif str(findWholeWord('open epic games')(result)) != "None":
+						elif str(findWholeWord('open epic games')(result)) != "None": # open epic games launcher
 							speak.Speak("Opening Epic Games Launcher")
 							subprocess.call(['C:\Program Files (x86)\Epic Games\Launcher\Portal\Binaries\Win64\EpicGamesLauncher.exe'])
 							active = False
@@ -76,13 +76,15 @@ def voice_ai():
 							speak.Speak("Searching for " + result[7:] + " on your browser")
 							googleSearch(result[7:])
 							active = False
-						elif result.startswith("text my girlfriend"):
+						elif result.startswith("text my girlfriend"): # text girlfriend with twilio API
 							speak.Speak("Texting your girlfriend " + result[19:])
 							twilio_texting.sendText(result[19:])
 							active = False
-						elif result.startswith("play game"):
+						elif result.startswith("play game"): # play desired game
 							if result[10:].lower() == "avolition":
 								play_game_command.chooseGame("avolition")
+							if result[10:].lower() == "wow":
+								# open world of warcraft
 						else:
 							speak.Speak("I do not recognize that command, please try again.")
 							print("Google Speech Recognition thinks you said \"" + result + "\"")
