@@ -83,7 +83,7 @@ def voice_ai():
 						elif result.startswith("play game"): # play desired game
 							if result[10:].lower() == "avolition":
 								play_game_command.chooseGame("avolition")
-							if result[10:].lower() == "wow":
+							#if result[10:].lower() == "wow":
 								# open world of warcraft
 						else:
 							speak.Speak("I do not recognize that command, please try again.")
