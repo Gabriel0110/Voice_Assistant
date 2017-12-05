@@ -87,8 +87,8 @@ def voice_ai():
 							#if result[10:].lower() == "wow":
 								# open world of warcraft
 							active = False
-						elif result == "start work timer":
-							work_timer.workTimer()
+						elif result.startswith("start work timer"): # SPECIFY TIME IN MINUTES (30 sec = 0.5)
+							work_timer.workTimer(float(result[17:]))
 							active = False
 						else:
 							speak.Speak("I do not recognize that command, please try again.")
