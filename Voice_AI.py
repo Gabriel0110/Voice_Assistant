@@ -5,6 +5,8 @@ import webbrowser
 import time
 import re
 import twilio_texting
+import pyautogui
+import play_game_command
 
 
 def main():
@@ -78,6 +80,9 @@ def voice_ai():
 							speak.Speak("Texting your girlfriend " + result[19:])
 							twilio_texting.sendText(result[19:])
 							active = False
+						elif result.startswith("play game"):
+							if result[10:].lower() == "avolition":
+								play_game_command.chooseGame("avolition")
 						else:
 							speak.Speak("I do not recognize that command, please try again.")
 							print("Google Speech Recognition thinks you said \"" + result + "\"")
