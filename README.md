@@ -1,9 +1,6 @@
 # Voice_Assistant
-Speech Recognition Assistant for my computer
+Voice Assistant for my computer using Google Speech Recognition.
 
-** IMPORTANT: Be sure to have required libraries installed, or else it will not work. **
+Acts similar to Amazon Echo where, once running, it can be activated by a specific phrase: "Hey Jarvis"
 
-1) Run program on any Python IDE
-2) Speak into microphone saying, "Hey Jarvis"
-3) Jarvis should respond back saying, "How can I help you"?
-4) Now speak one of the commands available in the source code exactly
+Once activated, it is currently setup to say "How can I help you", then awaits for a command.  Currently, I have only implemented a reminder system to help with my terrible memory.
